@@ -51,7 +51,7 @@ public class JobConfig {
         return new JobBuilder("importUserJob", jobRepository)
                 .listener(listener)
                 .start(cleanupStep())
-                .next(step1(reader, processor, writer))
+                .next(step1(reader, processor,  writerJpa))
                 .next(decider)
                 .from(decider).on("CONTINUE").to(step2())
                 .from(decider).on("STOP").end()
@@ -62,8 +62,8 @@ public class JobConfig {
     @Bean
     public Step step1(
              PersonItemReader reader,
-     PersonItemProcessor processor,
-     PersonItemWriter writer
+            PersonItemProcessor processor,
+             JpaItemWriter<Person> writerJpa
                      /* FlatFileItemReader<Person> reader,
                       PersonItemProcessor processor,
                       JpaItemWriter <Person> writer*/) {
