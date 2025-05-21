@@ -1,0 +1,7 @@
+package com.example.batch.listener;/*
+    * @created 20/05/2025- 3:22 PM
+    * @project spring-batch-demo
+    * @author bziche
+*/public class JobCompetitionNotificationListener {
+/* Created by bziche on 5/20/2025 */
+}
